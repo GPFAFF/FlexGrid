@@ -371,15 +371,6 @@
     border: 1px solid #000; }
   .border-dashed {
     border: 1px dashed #000; }
-  .prettyprint {
-    margin-bottom: 50px; }
-  body {
-    background: #ccc; }
-  .example {
-    display: block; }
-  .example,
-  pre {
-    background: #fff; }
   .row,
   .column {
     display: flex; }
@@ -411,5 +402,14 @@
     justify-content: space-between; }
   pre {
     overflow-x: auto; }
+  .prettyprint {
+    margin-bottom: 50px; }
+  body {
+    background: #ccc; }
+  .example {
+    display: block; }
+  .example,
+  pre {
+    background: #fff; }
 
 /*# sourceMappingURL=styles.css.map*/

@@ -21,6 +21,9 @@ const config = {
         loader: ExtractTextPlugin.extract({
           fallbackLoader: "style-loader",
           loader: [{
+                    loader: 'postcss-loader'
+                  },
+                  {
                     loader: 'css-loader',
                     query: { modules: true, sourceMap: true }
                   },

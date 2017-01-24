@@ -1,3 +1,20 @@
 pre {
   overflow-x: auto;
 }
+
+.prettyprint {
+  margin-bottom: 50px;
+}
+
+body {
+  background: $gray;
+}
+
+.example {
+  display: block;
+}
+
+.example,
+pre {
+  background: $white;
+}

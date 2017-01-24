@@ -70,7 +70,7 @@
 /* 0 */
 /***/ function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Unknown word (1:1)\n\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 | \u001b[39mexports = module.exports = \u001b[36mrequire\u001b[39m\u001b[36m(\u001b[39m\u001b[32m\"./../../node_modules/css-loader/lib/css-base.js\"\u001b[39m\u001b[36m)\u001b[39m\u001b[36m()\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m   | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 | \u001b[39m// imports\n \u001b[90m 3 | \u001b[39m\n\n    at /Users/jacruesi/Documents/Projects/FlexGrid/node_modules/webpack/lib/NormalModule.js:143:35\n    at /Users/jacruesi/Documents/Projects/FlexGrid/node_modules/loader-runner/lib/LoaderRunner.js:359:11\n    at /Users/jacruesi/Documents/Projects/FlexGrid/node_modules/loader-runner/lib/LoaderRunner.js:225:18\n    at context.callback (/Users/jacruesi/Documents/Projects/FlexGrid/node_modules/loader-runner/lib/LoaderRunner.js:106:13)\n    at /Users/jacruesi/Documents/Projects/FlexGrid/node_modules/postcss-loader/index.js:139:13");
 
 /***/ },
 /* 1 */
