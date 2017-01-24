@@ -18,6 +18,9 @@ const config = {
       },
       {
         test: /\.scss$/,
+        include: [
+          path.resolve(__dirname, "not_exist_path")
+        ],
         loader: ExtractTextPlugin.extract({
           fallbackLoader: "style-loader",
           loader: [{
@@ -30,7 +33,7 @@ const config = {
                   {
                     loader: 'sass-loader',
                     query: { sourceMap: true }
-                  }],
+                  }]
         })
       },
       {
