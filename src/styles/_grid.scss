@@ -11,60 +11,60 @@
   &.gutter {
     &.inner_margin {
       @media (min-width: breakpoint-value('md')) {
-        margin-left: -$grid_gutter_x;
-        margin-right: -$grid_gutter_x;
+        margin-left: -$grid_gutter_x * 2;
+        margin-right: -$grid_gutter_x * 2;
       }
       @media (min-width: breakpoint-value('lg')) {
-        margin-left: -$grid_gutter_x*2;
-        margin-right: -$grid_gutter_x*2;
+        margin-left: -$grid_gutter_x * 4;
+        margin-right: -$grid_gutter_x * 4;
       }
       >.flex_item {
         @media (min-width: breakpoint-value('md')) {
-          margin: $grid_gutter_y $grid_gutter_x*2;
+          margin: $grid_gutter_y $grid_gutter_x * 4;
         }
         @media (min-width: breakpoint-value('lg')) {
-          margin: $grid_gutter_y $grid_gutter_x*3;
+          margin: $grid_gutter_y $grid_gutter_x * 6;
         }
       }
     }
     >.flex_item {
-      margin: $grid_gutter_y $grid_gutter_x;
+      margin: $grid_gutter_y * 2 $grid_gutter_x * 2;
       &.full_width {
-        width: calc(100% - #{$grid_gutter_x * 2});
+        width: calc(100% - #{$grid_gutter_x * 4});
       }
     }
     &_x {
       &.inner_margin {
         @media (min-width: breakpoint-value('md')) {
-          margin-left: -$grid_gutter_x;
-          margin-right: -$grid_gutter_x;
+          margin-left: -$grid_gutter_x * 2;
+          margin-right: -$grid_gutter_x * 2;
         }
         @media (min-width: breakpoint-value('lg')) {
-          margin-left: -$grid_gutter_x*2;
-          margin-right: -$grid_gutter_x*2;
+          margin-left: -$grid_gutter_x * 4;
+          margin-right: -$grid_gutter_x * 4;
         }
         >.flex_item {
           @media (min-width: breakpoint-value('md')) {
-            margin-left: $grid_gutter_x*2;
-            margin-right: $grid_gutter_x*2;
+            margin-left: $grid_gutter_x * 4;
+            margin-right: $grid_gutter_x * 4;
           }
           @media (min-width: breakpoint-value('lg')) {
-            margin-left: $grid_gutter_x*3;
-            margin-right: $grid_gutter_x*3;
+            margin-left: $grid_gutter_x * 6;
+            margin-right: $grid_gutter_x * 6;
           }
         }
       }
       >.flex_item {
-        margin-left: $grid_gutter_x;
-        margin-right: $grid_gutter_x;
+        margin-left: $grid_gutter_x * 2;
+        margin-right: $grid_gutter_x * 2;
         &.full_width {
-          width: calc(100% - #{$grid_gutter_x * 2});
+          width: calc(100% - #{$grid_gutter_x * 4});
         }
       }
     }
     &_y>.flex_item {
-      margin-top: $grid_gutter_y;
-      margin-bottom: $grid_gutter_y;
+      margin-top: $grid_gutter_y * 2;
+      margin-bottom: $grid_gutter_y * 2;
     }
   }
 }
