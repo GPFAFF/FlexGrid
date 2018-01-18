@@ -2,82 +2,67 @@
 @import 'grid_functions';
 @import 'grid_helpers';
 @import 'grid_fixes';
-
 .row {
   display: block;
   flex-flow: row wrap;
-
-  > .full_width {
+  >.full_width {
     width: 100%;
   }
-
   &.gutter {
     &.inner_margin {
       @media (min-width: breakpoint-value('md')) {
         margin-left: -$grid_gutter_x;
         margin-right: -$grid_gutter_x;
       }
-
       @media (min-width: breakpoint-value('lg')) {
         margin-left: -$grid_gutter_x*2;
         margin-right: -$grid_gutter_x*2;
       }
-
-      > .flex_item {
+      >.flex_item {
         @media (min-width: breakpoint-value('md')) {
           margin: $grid_gutter_y $grid_gutter_x*2;
         }
-
         @media (min-width: breakpoint-value('lg')) {
           margin: $grid_gutter_y $grid_gutter_x*3;
         }
       }
     }
-
-    > .flex_item {
+    >.flex_item {
       margin: $grid_gutter_y $grid_gutter_x;
-
       &.full_width {
         width: calc(100% - #{$grid_gutter_x * 2});
       }
     }
-
     &_x {
       &.inner_margin {
         @media (min-width: breakpoint-value('md')) {
           margin-left: -$grid_gutter_x;
           margin-right: -$grid_gutter_x;
         }
-
         @media (min-width: breakpoint-value('lg')) {
           margin-left: -$grid_gutter_x*2;
           margin-right: -$grid_gutter_x*2;
         }
-
-        > .flex_item {
+        >.flex_item {
           @media (min-width: breakpoint-value('md')) {
             margin-left: $grid_gutter_x*2;
             margin-right: $grid_gutter_x*2;
           }
-
           @media (min-width: breakpoint-value('lg')) {
             margin-left: $grid_gutter_x*3;
             margin-right: $grid_gutter_x*3;
           }
         }
       }
-
-      > .flex_item {
+      >.flex_item {
         margin-left: $grid_gutter_x;
         margin-right: $grid_gutter_x;
-
         &.full_width {
           width: calc(100% - #{$grid_gutter_x * 2});
         }
       }
     }
-
-    &_y > .flex_item {
+    &_y>.flex_item {
       margin-top: $grid_gutter_y;
       margin-bottom: $grid_gutter_y;
     }
@@ -96,12 +81,10 @@
   }
   @include build_only_media_queries($breakpoint) {
     @include build_grows($breakpoint, true);
-    @include build_flex_rows($breakpoint, true);
-    // // Commenting out for now, because I'm not sure this is wanted.
+    @include build_flex_rows($breakpoint, true); // // Commenting out for now, because I'm not sure this is wanted.
     // // It makes the file size a lot larger.
     // @include build_shorthands($breakpoint, true);
-    @include build_alignments($breakpoint, true);
-    // // Commenting out for now, ecause I'm not sure this is wanted.
+    @include build_alignments($breakpoint, true); // // Commenting out for now, ecause I'm not sure this is wanted.
     // // It makes the file size a lot larger.
     // @include build_shorthand_grows($breakpoint, true);
     @include build_order_helpers($breakpoint, true);

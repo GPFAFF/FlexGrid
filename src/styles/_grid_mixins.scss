@@ -1,16 +1,15 @@
 @mixin build_media_queries($breakpoint) {
-
   @if (requires-media-query($breakpoint)) {
     @media (min-width: breakpoint-value($breakpoint)) {
       @content;
     }
-  } @else {
+  }
+  @else {
     @content;
   }
 }
 
 @mixin build_only_media_queries($breakpoint) {
-
   @if (requires-only-media-query($breakpoint)) {
     @media (min-width: breakpoint-value($breakpoint)) and (max-width: next-breakpoint-value($breakpoint) - 1px) {
       @content;
@@ -19,7 +18,6 @@
 }
 
 @mixin build_down_media_queries($breakpoint) {
-
   @if (requires-down-media-query($breakpoint)) {
     @media (max-width: breakpoint-value($breakpoint) - 1px) {
       @content;
@@ -28,12 +26,10 @@
 }
 
 @mixin build_grows($breakpoint, $only: false) {
-
   $extension: breakpoint-extension($breakpoint);
   @if ($only) {
     $extension: breakpoint-only-extension($breakpoint);
   }
-
   @for $grow_level from 1 through $grow_levels {
     .grow_#{$grow_level}#{$extension} {
       flex: #{$grow_level};
@@ -42,123 +38,103 @@
 }
 
 @mixin build_flex_rows($breakpoint, $only: false) {
-
   $extension: breakpoint-extension($breakpoint);
   @if ($only) {
     $extension: breakpoint-only-extension($breakpoint);
   }
-
   .flex#{$extension} {
     display: flex;
   }
 }
 
 @mixin build_alignments($breakpoint, $only: false) {
-
   $extension: breakpoint-extension($breakpoint);
   @if ($only) {
     $extension: breakpoint-only-extension($breakpoint);
   }
-
   .space_between#{$extension} {
     justify-content: space-between;
   }
-
   .space_around#{$extension} {
     justify-content: space-around;
   }
-
   .align_start#{$extension} {
     justify-content: flex-start;
   }
-
   .align_end#{$extension} {
     justify-content: flex-end;
   }
-
   .align_center#{$extension} {
     justify-content: center;
   }
 }
 
 @mixin build_shorthands($breakpoint, $only: false) {
-
   $extension: breakpoint-extension($breakpoint);
   @if ($only) {
     $extension: breakpoint-only-extension($breakpoint);
   }
-
   @for $shorthand_level from 2 through get-shorthand-count() {
     .#{shorthand-name($shorthand_level)}#{$extension} {
       display: flex;
-
-      > .flex_item {
+      >.flex_item {
         flex: 0 0 auto;
         width: #{percentage(1 / $shorthand_level)};
       }
-
       &[class*='gutter'] {
-        &.inner_margin > .flex_item {
+        &.inner_margin>.flex_item {
           @media (min-width: breakpoint-value('md')) {
             width: calc(#{percentage(1 / $shorthand_level)} - (#{$grid_gutter_x}*2) * 2);
           }
-
           @media (min-width: breakpoint-value('lg')) {
             width: calc(#{percentage(1 / $shorthand_level)} - (#{$grid_gutter_x}*3) * 2);
           }
         }
-        > .flex_item {
+        >.flex_item {
           flex: 0 0 auto;
           width: calc(#{percentage(1 / $shorthand_level)} - #{$grid_gutter_x} * 2);
         }
       }
     }
   }
-};
+}
 
+;
 @mixin build_across_helpers($shorthand_level, $breakpoint, $only: false) {
-
   $extension: breakpoint-extension($breakpoint);
   @if ($only) {
     $extension: breakpoint-only-extension($breakpoint);
-  }
-
-  // Allows a flex_item to fill the row when .two_across > .across_4
+  } // Allows a flex_item to fill the row when .two_across > .across_4
   [class*='_across'] {
-     > .flex_item[class*='across_'] {
+    >.flex_item[class*='across_'] {
       flex: 0 0 auto;
       width: 100%;
     }
-
     &[class*='gutter'] {
-      &.inner_margin > .flex_item[class*='across_'] {
+      &.inner_margin>.flex_item[class*='across_'] {
         @media (min-width: breakpoint-value('md')) {
           width: calc(100% - (#{$grid_gutter_x}*2) * 2);
         }
-
         @media (min-width: breakpoint-value('lg')) {
           width: calc(100% - (#{$grid_gutter_x}*3) * 2);
         }
       }
-
-      > .flex_item[class*='across_'] {
+      >.flex_item[class*='across_'] {
         flex: 0 0 auto;
         width: calc(100% - #{$grid_gutter_x} * 2);
       }
     }
   }
-
   @for $across_level from 2 through get-shorthand-count() {
     @if $across_level < $shorthand_level {
       .row.#{shorthand-name($shorthand_level)}#{$extension} {
-        > .flex_item {
+        >.flex_item {
           &.across_#{$across_level} {
             flex: 0 0 auto;
             width: #{percentage($across_level / $shorthand_level)};
           }
         }
-
-        &[class*='gutter'] > .flex_item {
+        &[class*='gutter']>.flex_item {
           &.across_#{$across_level} {
             flex: 0 0 auto;
             width: calc(#{percentage($across_level / $shorthand_level)} - #{$grid_gutter_x} * 2);
@@ -167,16 +143,13 @@
       }
     }
   }
-
 }
 
 @mixin build_order_helpers($breakpoint, $only: false) {
-
   $extension: breakpoint-extension($breakpoint);
   @if ($only) {
     $extension: breakpoint-only-extension($breakpoint);
   }
-
   @for $order_level from -6 through 6 {
     .order_#{$order_level}#{$extension} {
       order: $order_level;
@@ -185,7 +158,6 @@
 }
 
 @mixin build_hidden_helpers($breakpoint, $only: false, $down: false) {
-
   $extension: breakpoint-extension($breakpoint);
   @if ($only) {
     $extension: breakpoint-only-extension($breakpoint);
@@ -193,54 +165,52 @@
   @if ($down) {
     $extension: breakpoint-down-extension($breakpoint);
   }
-
   .hide#{$extension} {
     display: none !important;
   }
 }
 
 @mixin build_spacing_helpers($grow_level, $breakpoint, $only: false) {
-
   $extension: grow-extension($grow_level) + breakpoint-extension($breakpoint);
   @if ($only) {
     $extension: grow-extension($grow_level) + breakpoint-only-extension($breakpoint);
   }
-
   $spacers: 'margin', 'padding';
-
   @each $spacer in $spacers {
     $spacer_keys: map-keys($margins);
     $space: $margin;
-    @if $spacer == 'padding' {
+    @if $spacer=='padding' {
       $spacer_keys: map-keys($paddings);
       $space: $padding;
     }
     @each $spacer_key in $spacer_keys {
       $spacer_name: margin-name($spacer_key);
-      @if $spacer == 'padding' {
+      @if $spacer=='padding' {
         $spacer_name: padding-name($spacer_key);
       }
-
       .#{$spacer_name}#{$extension} {
-        @if $spacer_key == 'center' {
-          @if $spacer == 'margin' {
+        @if $spacer_key=='center' {
+          @if $spacer=='margin' {
             margin-left: auto;
             margin-right: auto;
           }
-        } @elseif $spacer_key == 'all' {
+        }
+        @elseif $spacer_key=='all' {
           #{$spacer}: $space * $grow_level;
-        } @elseif $spacer_key == 'x' {
+        }
+        @elseif $spacer_key=='x' {
           #{$spacer}-left: $space * $grow_level;
           #{$spacer}-right: $space * $grow_level;
-        } @elseif $spacer_key == 'y' {
+        }
+        @elseif $spacer_key=='y' {
           #{$spacer}-bottom: $space * $grow_level;
           #{$spacer}-top: $space * $grow_level;
-        } @else {
+        }
+        @else {
           $attribute: #{$spacer}-#{$spacer_key};
           #{$attribute}: $margin * $grow_level;
         }
       }
     }
   }
-
 }
